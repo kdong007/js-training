@@ -6,7 +6,7 @@ JavaScript是世界上最流行的编程语言之一，同时在浏览器之外�
 
 来学习你所需要的JavaScript相关知识吧！
 
-索引列表
+# 索引列表
 - ECMAscript
 - ES6
 - ES2016
@@ -44,7 +44,7 @@ JavaScript是世界上最流行的编程语言之一，同时在浏览器之外�
 - CommonJS
 - Glossary
 
-#前言
+# 前言
 JavaScript是世界上最流行的语言之一。20年前面世，在低调地开头之后走过了很长的一段路。
 
 作为第一个，同时也是唯一的浏览器原生支持的脚本语言，它太糟糕了（译者注:原文是"stuck"卡住的意思，目测是手滑了，应该是"suck"）。
@@ -71,7 +71,7 @@ JavaScript是一个有如下特征的编程语言：
 
 万一你在想的话, **JavaScript和Java完全没有关系**, 这只是一个非常不幸的名字选择并且这么流传下来了
 
-#JavaScript版本
+# JavaScript版本
 首先让我介绍一下这个单词**ECMAScript**。我们有专门关于ECMAScript的介绍你可以深入阅读，但是现在你仅仅需要知道ECMAScript（也叫做ES）是JavaScript标准的名字。
 
 JavaScript是那个标准的一种实现。所以你一只听到 ES6,ES2015,ES2016,ES2017,ES2018等等。
@@ -83,7 +83,7 @@ JavaScript是那个标准的一种实现。所以你一只听到 ES6,ES2015,ES20
 现在最新通过的JavaScript版本是ES2017
 （译者注: 原文发布于2018年10月30日）
 
-#ECMASCRIPT
+# ECMASCRIPT
 每当你读到JavaScript的时候你都不可避免地遇到以下术语:
 - ES3
 - ES5
