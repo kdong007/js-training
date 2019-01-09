@@ -59,7 +59,7 @@ JavaScript是世界上最流行的语言之一。20年前面世，在低调地�
 
 JavaScript现在也可以增强数据库和其他很多应用。它甚至可以开发嵌入式应用，移动端应用，电视端应用以及更多。一个由浏览器内嵌的小语言现在成长为世界上最流行的语言。
 
-#JavaScript的基础定义
+## JavaScript的基础定义
 JavaScript是一个有如下特征的编程语言：
 （译者注：当然这不是JavaScript特有的，比如Python也有如下特性）
 - **高级语言**: 提供了抽象性让你可以忽略运行机器的细节。自动管理内存以及垃圾回收机制，所以你可以更专注于代码本身而不是管理内存地址，提供许多contructs??让你使用功能强大的变量和对象。
@@ -71,7 +71,7 @@ JavaScript是一个有如下特征的编程语言：
 
 万一你在想的话, **JavaScript和Java完全没有关系**, 这只是一个非常不幸的名字选择并且这么流传下来了
 
-# JavaScript版本
+## JavaScript版本
 首先让我介绍一下这个单词**ECMAScript**。我们有专门关于ECMAScript的介绍你可以深入阅读，但是现在你仅仅需要知道ECMAScript（也叫做ES）是JavaScript标准的名字。
 
 JavaScript是那个标准的一种实现。所以你一只听到 ES6,ES2015,ES2016,ES2017,ES2018等等。
@@ -120,20 +120,20 @@ IE9之后，微软不再把他们浏览器的ES支持称为JScript并且开�
 
 至201x，唯一流行的支持ECMAScript的语言是JavaScript.
 
-# 当前ECMAScript版本
+## 当前ECMAScript版本
 当前ECMAScirpt版本是ES2018。发布于2018年6月。
 
-# 下一个版本什么时候发布？
+## 下一个版本什么时候发布？
 从过往经验来看，JavaScript的修改在夏季的时候被标准化，所以我们可以期待**ECMAScript 2019**在2019年夏天发布，当然这是只是推断。
 
-# TC39是什么
+## TC39是什么
 TC39是进化JavaScrpt的委员会。
 
 TC39的成员是跟JavaScript有紧密关系的公司和浏览器提供方，包括Mollia，谷歌，脸书(Facebook)，苹果，微软，英特尔，PayPal, SalesForce等等。
 
 每一个版本的提议都要经过几个阶段，[这里有详细解释](https://tc39.github.io/process-document/)
 
-# ES版本
+## ES版本
 ES版本号有时候用年份有时候用升序版号表示让我感觉很困惑。
 
 ES2015之前，ECMAScript标准一般用升序版号。所以ES5是2009年发布的ECMAScript标准的更新的官方名称。
@@ -177,7 +177,7 @@ ES2015最重要的变化包括：
 
 在这篇引导种我会在每一个分段逐一讲解以上每一点。我们开始吧。
 
-# 箭头函数
+## 箭头函数
 箭头函数改变了大部分JavaScript代码的样子（以及工作方式）。
 
 视觉上，它是一个简单的欢迎改变，从这样:
@@ -204,12 +204,12 @@ const foo = param => doSomething(param)
 
 这不是一个breaking change??, 因为普通的方程和原来的工作方式一样。
 
-# 一个新的this作用域
+## 一个新的this作用域
 *`this`的作用域会从环境中继承*
 
 普通方程中，`this`永远是指最近方程，而箭头方程中这个问题不复存在了，所以你永远不用再写`var that = this`了。
 
-# Promise
+## Promise
 Promise可以让我们杜绝有名的“回调地狱”，尽管它增加少量的复杂度（但是在ES2017中一种更高级的结构`async`解决了这个问题）
 
 Promise在ES2015之前就通过许多不同的库的实现已经被JavaScript开发者们广泛使用了(例如jQuery, q, deffered.js, vow...)。这个标准在不同差异中创建了一个共同基础。
@@ -238,7 +238,7 @@ wait().then(() => {
 .then(() => console.log('I promised to run after 2s'))
 ```
 
-# Generators
+## Generators
 Generator是一种特殊类型的方程，拥有让自己暂停，稍后继续，在之间让其他代码运行的能力。
 
 代码决定它需要等待什么，所以它让其他“在队列中”的代码运行，同时保留“当它在等待的”结束的时候自己继续运行的权利。
@@ -327,7 +327,7 @@ calc.next(100)
 
 特别提一下`const`因为其不可修改的特性现在**非常广泛的被使用**。
 
-# 类
+## 类
 曾经JavaScript是唯一的基于原型继承的主流语言。程序员从基于类继承的语言切换到JavaScript的时候感到很头疼，但是ES2015引入了类，虽然仅仅是包在JavaScript内部机制之上的语法糖，但是改变了我们写JavaScript程序的方式。
 
 现在，继承非常简单而且和其他面向对象的语言非常类似。
@@ -354,13 +354,13 @@ tomCruise.hello()
 
 类没有直接的成员变量声明，但是你必须在狗构造器里初始化任何变量。
 
-# 构造器
+## 构造器
 类有一个特殊函数叫做`构造器`，在类被`new`初始化的时候被调用
 
-# Super
+## Super
 父类可以用`super()`去引用。
 
-# Getter和Setter
+## Getter和Setter
 一个属性的getter可以这样声明
 ```js
 class Person {
@@ -379,7 +379,7 @@ class Person {
 }
 ```
 
-# 模块
+## 模块
 ES2015之前
 
 // TODO
@@ -392,19 +392,21 @@ RequireJS
 CommonJS
 ES2015 standardized these into a common format.
 
-Importing modules
+## 引入模块
 Importing is done via the import ... from ... construct:
 
 import * from 'mymodule'
 import React from 'react'
 import { React, Component } from 'react'
 import React as MyLibrary from 'react'
-Exporting modules
+
+## 导出模块
 You can write modules and export anything to other modules using the export keyword:
 
 export var foo = 2
 export function bar() { /* ... */ }
-Template Literals
+
+## 模版源文本
 Template literals are a new syntax to create strings:
 
 const aString = `A string`
@@ -427,12 +429,14 @@ Compare how we used to do multiline strings pre-ES2015:
 var str = 'One\n' +
 'Two\n' +
 'Three'
-Default parameters
+
+## 默认参数
 Functions now support default parameters:
 
 const foo = function(index = 0, testing = true) { /* ... */ }
 foo()
-The spread operator
+
+## 展开操作符
 You can expand an array, an object or a string using the spread operator ....
 
 Let’s start with an array example. Given the following:
@@ -458,7 +462,7 @@ const a = [1, 2]
 f(...a)
 In the past you could do this using f.apply(null, a) but that's not as nice and readable.
 
-Destructuring assignments
+## 解构赋值
 Given an object, you can extract just some values and put them into named variables:
 
 const person = {
@@ -474,10 +478,11 @@ The syntax also works on arrays:
 
 const a = [1,2,3,4,5]
 [first, second, , , fifth] = a
-Enhanced Object Literals
+
+## Enhanced Object Literals
 In ES2015 Object Literals gained superpowers.
 
-Simpler syntax to include variables
+## Simpler syntax to include variables
 Instead of doing
 
 const something = 'y'
@@ -490,14 +495,16 @@ const something = 'y'
 const x = {
   something
 }
-Prototype
+
+## Prototype
 A prototype can be specified with
 
 const anObject = { y: 'y' }
 const x = {
   __proto__: anObject
 }
-super()
+
+## super()
 const anObject = { y: 'y', test: () => 'zoo' }
 const x = {
   __proto__: anObject,
@@ -506,12 +513,13 @@ const x = {
   }
 }
 x.test() //zoox
-Dynamic properties
+## Dynamic properties
 const x = {
   ['a' + '_' + 'b']: 'z'
 }
 x.a_b //z
-For-of loop
+
+## For-of loop
 ES5 back in 2009 introduced forEach() loops. While nice, they offered no way to break, like for loops always did.
 
 ES2015 introduced the for-of loop, which combines the conciseness of forEach with the ability to break:
@@ -524,17 +532,18 @@ for (const v of ['a', 'b', 'c']) {
 for (const [i, v] of ['a', 'b', 'c'].entries()) {
   console.log(i, v);
 }
-Map and Set
+
+## Map and Set
 Map and Set (and their respective garbage collected WeakMap and WeakSet) are the official implementations of two very popular data structures (introduced later on).
 
-The ES2016 improvements
+# The ES2016 improvements
 ES7, officially known as ECMAScript 2016, was finalized in June 2016.
 
 Compared to ES6, ES7 is a tiny release for JavaScript, containing just two features:
 
 Array.prototype.includes
 Exponentiation Operator
-Array.prototype.includes()
+## Array.prototype.includes()
 This feature introduces a more readable syntax for checking if an array contains an element.
 
 With ES6 and lower, to check if an array contained an element you had to use indexOf, which checks the index in the array, and returns -1 if the element is not there.
@@ -549,7 +558,8 @@ With this feature introduced in ES7 we can do
 if (![1,2].includes(3)) {
   console.log('Not found')
 }
-Exponentiation Operator
+
+## Exponentiation Operator
 The exponentiation operator ** is the equivalent of Math.pow(), but brought into the language instead of being a library function.
 
 Math.pow(4, 2) == 4 ** 2
