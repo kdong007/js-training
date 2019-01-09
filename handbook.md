@@ -99,7 +99,7 @@ JavaScript是那个标准的一种实现。所以你一只听到 ES6,ES2015,ES20
 
 他们都代表什么呢？
 
-他们都代表一个**标准**，叫做ECMAScript.
+他们都代表一个**标准**，叫做ECMAScript.
 
 ECMAScript是**JavaScript所遵循的一个标准**，很多时候缩写为**ES**.
 
