@@ -2,7 +2,7 @@ https://medium.freecodecamp.org/the-complete-javascript-handbook-f26b2c71719c
 
 JavaScript是世界上最流行的编程语言之一，同时在浏览器之外的领域也有广泛的应用。最近几年Node.js的兴起解锁了后端编程-曾经Java,Ruby,Python,PHP以及其他后端编程语言的领域。
 
-本文 "JavaScript Handbook" 遵循80/20原则：花20%的时间学习80%的JavaScript
+本文 "JavaScript Handbook" 遵循80/20原则：花20%的时间学习80%的JavaScript
 
 来学习你所需要的JavaScript相关知识吧！
 
