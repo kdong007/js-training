@@ -155,6 +155,170 @@ ECMAScript2015, 也叫做ES6, 是ECMAScript的一个基础版本。
 
 所以**它不应该被称为ES6**(尽管大家都如此称呼它)而是ES2015。
 
-从1999年到2009年ES5打造了整整10年，并且它是一个基础并且非常重要的版本。现在已经过去了那么多时间所以去谈ES5之前的代码如何运行已经没有价值了。
+从1999年到2009年ES5打造了整整10年，并且它是一个重大并且非常重要的版本。现在已经过去了那么多时间所以去谈ES5之前的代码如何运行已经没有价值了。
 
-
+因为ES5.1和ES6之间隔了太久，这个版本有太多重要的功能和开发JavaScript的最佳实践的大变化。为了让你感受这次版本更新有多重大，请记住，这次版本的更新文档有250~600页。
+
+ES2015最重要的变化包括：
+- 箭头函数 Arrow functions
+- Promises
+- Generators
+- `let`以及`const`
+- 类 Classes
+- 模块 Modules
+- 跨行字符串 Multiline strings
+- 模版文字 Template literals
+- 默认参数 Default parameters
+- The spread operator
+- Destructuring assignments
+- Enhanced object literals
+- for..of循环
+- 映射(Map)和集合(Set)
+
+在这篇引导种我会在每一个分段逐一讲解以上每一点。我们开始吧。
+
+#箭头函数
+箭头函数改变了大部分JavaScript代码的样子（以及工作方式）。
+
+视觉上，它是一个简单的欢迎改变，从这样:
+```js
+const foo = function foo() {
+  //...
+}
+```
+变成这样
+```js
+const foo = () => {
+  //...
+}
+```
+
+如果是只有一行的逻辑的函数，你还可以这样做：
+```js
+const foo = () => doSomething()
+```
+另外，如果你只有一个参数，你可以这样
+```js
+const foo = param => doSomething(param)
+```
+
+这不是一个breaking change??, 因为普通的方程和原来的工作方式一样。
+
+#一个新的this作用域
+*`this`的作用域会从环境中继承*
+
+普通方程中，`this`永远是指最近方程，而箭头方程中这个问题不复存在了，所以你永远不用再写`var that = this`了。
+
+#Promise
+Promise可以让我们杜绝有名的“回调地狱”，尽管它增加少量的复杂度（但是在ES2017中一种更高级的结构`async`解决了这个问题）
+
+Promise在ES2015之前就通过许多不同的库的实现已经被JavaScript开发者们广泛使用了(例如jQuery, q, deffered.js, vow...)。这个标准在不同差异中创建了一个共同基础。
+
+通过使用Promise，你可以重写这些代码
+
+```js
+setTimeout(function() {
+  console.log('I promised to run after 1s')
+  setTimeout(function() {
+    console.log('I promised to run after 2s')
+  }, 1000)
+}, 1000)
+```
+
+成为
+
+```js
+const wait = () => new Promise((resolve, reject) => {
+  setTimeout(resolve, 1000)
+})
+wait().then(() => {
+  console.log('I promised to run after 1s')
+  return wait()
+})
+.then(() => console.log('I promised to run after 2s'))
+```
+
+#Generators
+Generator是一种特殊类型的方程，拥有让自己暂停，稍后继续，在之间让其他代码运行的能力。
+
+代码决定它需要等待什么，所以它让其他“在队列中”的代码运行，同时保留“当它在等待的”结束的时候自己继续运行的权利。
+
+这些全部都是有一个简单的关键词完成的：`yield`。当一个generator包含那个关键词时，运行就被停下了。
+
+一个genertor可以包含多个`yield`关键词，所以会停下多次，并且它由`*function`关键词识别。请注意不要和C,C++,Go等底层语言的指针dereference运算符号混淆。
+
+Generator开启了一个全新的JavaScript范式，允许:
+- generator运行中的双向通信
+- 长期运行并且不会卡住你的程序的while循环
+
+以下是一个解释它如何工作的例子：
+```js
+function *calculator(input) {
+    var doubleThat = 2 * (yield (input / 2))
+    var another = yield (doubleThat)
+    return (input * doubleThat * another)
+}
+```
+
+我们这样初始化
+```js
+const calc = calculator(10)
+```
+
+然后我们这样开始generator的迭代器
+```js
+calc.next()
+```
+
+第一次循环启动了迭代器。代码返回`this`对象：
+```js
+{
+  done: false
+  value: 5
+}
+```
+
+这里发生的是：代码运行方程时，generator的构造器收到参数`input = 10`。代码运行直至碰到`yield`，同时返回`yield`的内容：`input / 2 = 5`。所以我们得到数值5，并且提示循环没有结束（方程只是暂停了）。
+
+第二次循环的时候我们传值`7`：
+```js
+calc.next(7)
+```
+
+同时我们期待得到：
+```js
+{
+  done: false
+  value: 14
+}
+```
+
+`doubleThat`的值被替换为`7`。
+
+重点：你可能以为`input / 2`是参数，但其实那是第一次循环的返回值。现在我们跳过它，并且使用新值`7`，然后乘以2。
+
+然后我们遇到了第二个yeild，它返回了`doubleThat`，所以返回值是`14`。
+
+下一步，最后一个循环，我们传入100
+```js
+calc.next(100)
+```
+
+它会返回
+```js
+{
+  done: true
+  value: 14000
+}
+```
+
+当循环结束的时候（找不到更多的`yield`关键词），我们就返回`(input * doubleThat * another)`也就是`10 * 14 * 100`的值。
+
+#let以及const
+`var`在以往是**方程作用域**
+
+`let`是一个新的**block??作用域**的变量声明。
+
+这意味着在for循环中，在if中或者在一个block中使用`let`声明变量不会让变量“逃出“block，然而`var`会??
+
+`const`和`let`一样，但是**不可修改**
